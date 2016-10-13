@@ -7,6 +7,9 @@
   <div class="well">
     <div class="dl-horizontal">
 
+      <dt>ID</dt>
+      <dd><?= $associate->idAssociated ?></dd>
+
       <dt>Nome</dt>
       <dd><?= $associate->name_assoc ?></dd>
 
@@ -25,9 +28,9 @@
       </dd>
     </div>
     <br>
-    <a class="btn btn-info" href="#" onclick="history.back()">Voltar</a>
-    <a class="btn btn-primary" href="<?= base_url('associated/edit/'.$associate->idAssociated) ?>">Alterar <span class="glyphicon glyphicon-edit"></span></a>
-
+    <a class="btn btn-info" href="#" onclick="history.back()"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
+    <a class="btn btn-primary"
+      href="<?= base_url('associated/edit/'.$associate->idAssociated) ?>"><span class="glyphicon glyphicon-edit"></span> Alterar</a>
   </div>
 
 </div>

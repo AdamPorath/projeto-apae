@@ -7,7 +7,15 @@
     <?= validation_errors() ?>
     <?= form_open($action) ?>
 
-    <input type="hidden" readonly name="idAssociated" value="<?= set_value('idAssociated', isset($associate->idAssociated) ? $associate->idAssociated:''); ?>">
+      <div class="form-group row">
+        <label for="idAssociated" class="col-sm-2 col-form-label">ID</label>
+        <div class="col-sm-6">
+          <input type="number" readonly
+            class="form-control"
+            id="idAssociated" name="idAssociated"
+            value="<?= set_value('idAssociated', isset($associate->idAssociated) ? $associate->idAssociated:''); ?>">
+        </div>
+      </div>
 
       <div class="form-group row">
         <label for="name_assoc" class="col-sm-2 col-form-label">Nome</label>
@@ -85,8 +93,8 @@
         </div>
       </div>
 
-      <a class="btn btn-info" href="<?= base_url('associated') ?>">Voltar</a>
-      <button type="submit" class="btn btn-success" href="#">Salvar <span class="glyphicon glyphicon-floppy-disk"></span></button>
+      <a class="btn btn-info" href="#" onclick="history.back()"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
+      <button type="submit" class="btn btn-success" href="#"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
 
     </form>
   </div>
