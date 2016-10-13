@@ -93,4 +93,9 @@ class AssociatedController extends CI_Controller {
     $this->AssociatedModel->delete($id);
   }
 
+  public function inactiveAssociate() {
+    $id = $this->uri->segment(3);
+    $this->AssociatedModel->inactive($id);
+  }
+
 }

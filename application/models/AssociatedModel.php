@@ -26,4 +26,14 @@ class AssociatedModel extends CI_Model {
     return $this->db->delete($this->table, array('id_associate' => $id));
   }
 
+  public function inactive($id) {
+    $this->db->where('id_associate', $id);
+    return $this->db->update($this->table, array('active' => 0));
+  }
+
+  public function active($id) {
+    $this->db->where('id_associate', $id);
+    return $this->db->update($this->table, array('active' => 1));
+  }
+
 }

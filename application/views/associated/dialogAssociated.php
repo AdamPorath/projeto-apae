@@ -2,9 +2,10 @@
   <div class="page-header">
     <h4><?= $title ?></h4>
   </div>
-
+  <div class="container row">
+    <?= validation_errors('<div class="col-sm-2 alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>') ?>
+  </div>
   <div class="well">
-    <?= validation_errors() ?>
     <?= form_open($action) ?>
 
       <div class="form-group row">
