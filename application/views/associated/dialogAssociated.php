@@ -8,12 +8,12 @@
     <?= form_open($action) ?>
 
       <div class="form-group row">
-        <label for="idAssociated" class="col-sm-2 col-form-label">ID</label>
+        <label for="id_associate" class="col-sm-2 col-form-label">ID</label>
         <div class="col-sm-6">
           <input type="number" readonly
             class="form-control"
-            id="idAssociated" name="idAssociated"
-            value="<?= set_value('idAssociated', isset($associate->idAssociated) ? $associate->idAssociated:''); ?>">
+            id="id_associate" name="id_associate"
+            value="<?= set_value('id_associate', isset($associate->id_associate) ? $associate->id_associate:''); ?>">
         </div>
       </div>
 
@@ -22,8 +22,8 @@
         <div class="col-sm-6">
           <input type="text"
             class="form-control"
-            id="name_assoc" name="name_assoc"
-            value="<?= set_value('name_assoc', isset($associate->name_assoc) ? $associate->name_assoc:''); ?>"
+            id="name_associate" name="name_associate"
+            value="<?= set_value('name_associate', isset($associate->name_associate) ? $associate->name_associate:''); ?>"
             placeholder="Nome Associado">
         </div>
       </div>

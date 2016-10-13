@@ -20,7 +20,7 @@ class AssociatedController extends CI_Controller {
   }
 
   public function createAssociate() {
-    $this->form_validation->set_rules('name_assoc', 'Nome', 'required');
+    $this->form_validation->set_rules('name_associate', 'Nome', 'required');
     $this->form_validation->set_rules('rg', 'RG', 'required');
     $this->form_validation->set_rules('cpf', 'CPF', 'required');
     $this->form_validation->set_rules('birth_date', 'Data de Nascimento', 'required');
@@ -28,7 +28,7 @@ class AssociatedController extends CI_Controller {
 
     if ($this->form_validation->run()) {
       $associate = array(
-        'name_assoc' => $this->input->post('name_assoc'),
+        'name_associate' => $this->input->post('name_associate'),
         'rg' => $this->input->post('rg'),
         'cpf' => $this->input->post('cpf'),
         'birth_date' => $this->input->post('birth_date'),
@@ -61,15 +61,15 @@ class AssociatedController extends CI_Controller {
   }
 
   public function updateAssociate() {
-    $this->form_validation->set_rules('name_assoc', 'Nome', 'required');
+    $this->form_validation->set_rules('name_associate', 'Nome', 'required');
     $this->form_validation->set_rules('rg', 'RG', 'required');
     $this->form_validation->set_rules('cpf', 'CPF', 'required');
     $this->form_validation->set_rules('birth_date', 'Data de Nascimento', 'required');
 
     if ($this->form_validation->run()) {
       $associate = array(
-        'idAssociated' => $this->input->post('idAssociated'),
-        'name_assoc' => $this->input->post('name_assoc'),
+        'id_associate' => $this->input->post('id_associate'),
+        'name_associate' => $this->input->post('name_associate'),
         'rg' => $this->input->post('rg'),
         'cpf' => $this->input->post('cpf'),
         'birth_date' => $this->input->post('birth_date'),

@@ -20,15 +20,15 @@
       <tbody>
         <?php foreach($associated as $associate): ?>
         <tr>
-          <td><?= $associate['idAssociated'] ?></td>
-          <td><?= $associate['name_assoc'] ?></td>
+          <td><?= $associate['id_associate'] ?></td>
+          <td><?= $associate['name_associate'] ?></td>
           <td><?= $associate['birth_date'] ?></td>
           <td><?= $associate['rg'] ?></td>
           <td><?= $associate['cpf'] ?></td>
           <td>
-            <a class="btn btn-info" href="<?= base_url('associated-detail/'.$associate['idAssociated']) ?>"><span class="glyphicon glyphicon-eye-open"></span></a>
-            <a class="btn btn-primary" href="<?= base_url('associated/edit/'.$associate['idAssociated']) ?>"><span class="glyphicon glyphicon-edit"></span></a>
-            <a id="<?= $associate['idAssociated'] ?>" data-toggle="modal" data-target="#modal" class="btn btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span></a>
+            <a class="btn btn-info" href="<?= base_url('associated-detail/'.$associate['id_associate']) ?>"><span class="glyphicon glyphicon-eye-open"></span></a>
+            <a class="btn btn-primary" href="<?= base_url('associated/edit/'.$associate['id_associate']) ?>"><span class="glyphicon glyphicon-edit"></span></a>
+            <a id="<?= $associate['id_associate'] ?>" data-toggle="modal" data-target="#modal" class="btn btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span></a>
           </td>
         </tr>
       <?php endforeach; ?>

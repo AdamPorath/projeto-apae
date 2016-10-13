@@ -14,16 +14,16 @@ class AssociatedModel extends CI_Model {
   }
 
   public function getById($id) {
-    return $this->db->get_where($this->table, array('idAssociated' => $id))->result();
+    return $this->db->get_where($this->table, array('id_associate' => $id))->result();
   }
 
   public function update($associate) {
-    $this->db->where('idAssociated', $associate['idAssociated']);
+    $this->db->where('id_associate', $associate['id_associate']);
     return $this->db->update($this->table, $associate);
   }
 
   public function delete($id) {
-    return $this->db->delete($this->table, array('idAssociated' => $id));
+    return $this->db->delete($this->table, array('id_associate' => $id));
   }
 
 }
