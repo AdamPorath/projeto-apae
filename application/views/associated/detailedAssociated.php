@@ -4,8 +4,8 @@
     <h4>Associado</h4>
   </div>
 
-  <div class="well">
-    <div class="dl-horizontal">
+  <div class="well row col-sm-12">
+    <div class="dl-horizontal row col-sm-8">
 
       <dt>ID</dt>
       <dd><?= $associate->id_associate ?></dd>
@@ -27,21 +27,28 @@
           <?= $associate->street .', '. $associate->number .', bairro '.$associate->neighborhood ?>
       </dd>
     </div>
-    <br>
-    <a class="btn btn-info" href="#" onclick="history.back()"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
-    <a class="btn btn-primary" href="<?= base_url('associated/edit/'.$associate->id_associate) ?>"><span class="glyphicon glyphicon-edit"></span> Alterar</a>
+
+    <div class="row col-sm-4">
+      <label for="">Contatos</label>
+
+    </div>
+
+  </div>
+
+  <div class="row col-sm-8">
+    <a class="btn btn-info" href="<?= base_url('associated') ?>"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
     <div class="pull-right">
+      <a class="btn btn-primary" href="<?= base_url('associated/edit/'.$associate->id_associate) ?>"><span class="glyphicon glyphicon-edit"></span> Alterar</a>
       <a id="<?= $associate->id_associate ?>" data-toggle="modal" data-target="#inactive_modal" class="btn btn-warning" href="#"><span class="glyphicon glyphicon-ban-circle"></span> Inativar</a>
       <a id="<?= $associate->id_associate ?>" data-toggle="modal" data-target="#delete_modal" class="btn btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span> Apagar</a>
     </div>
   </div>
-
 </div>
 
 <script type="text/javascript">
   $(document).ready(function(e) {
     var idAssociate;
-    $('.pull-right').on('click', '.btn-danger', function() {
+    $('.btn-danger').on('click', function() {
       idAssociate = $(this).attr('id');
       console.log(idAssociate);
     });
@@ -60,6 +67,7 @@
         })
       }
     });
+
   });
 </script>
 

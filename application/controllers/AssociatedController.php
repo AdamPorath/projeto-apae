@@ -14,6 +14,10 @@ class AssociatedController extends CI_Controller {
   }
 
   public function newAssociate() {
+    if ($this->session->contact_types) {
+      $data['contact_types'] = $this->AssociatedModel->getAllContactTypes();
+      $this->session->set_userdata('contact_types', $data['contact_types']);
+    }
     $data['action'] = 'associated/create';
     $data['title'] = 'Novo Associado';
     $this->template->load('template', 'associated/dialogAssociated', $data);
@@ -25,24 +29,17 @@ class AssociatedController extends CI_Controller {
     $this->form_validation->set_rules('cpf', 'CPF', 'required');
     $this->form_validation->set_rules('birth_date', 'Data de Nascimento', 'required');
 
-
     if ($this->form_validation->run()) {
-      $associate = array(
-        'name_associate' => $this->input->post('name_associate'),
-        'rg' => $this->input->post('rg'),
-        'cpf' => $this->input->post('cpf'),
-        'birth_date' => $this->input->post('birth_date'),
-        'street' => $this->input->post('street'),
-        'number' => $this->input->post('number'),
-        'neighborhood' => $this->input->post('neighborhood')
-      );
-      if ($this->AssociatedModel->create($associate))
-        redirect('associated', 'refresh');
+      $associate = (array) $this->input->post();
+      $id = $this->AssociatedModel->create($associate);
+      if ($id !== 0)
+        redirect('associated-detail/'.$id);
     }
     else {
-      $data['action'] = 'associated/create';
-      $data['title'] = 'Novo Associado';
-      $this->template->load('template', 'associated/dialogAssociated', $data);
+      //$data['contact_types'] = $this->session->contact_types;
+      //$data['action'] = 'associated/create';
+      //$data['title'] = 'Novo Associado';
+      //$this->template->load('template', 'associated/dialogAssociated', $data);
     }
   }
 
@@ -96,6 +93,10 @@ class AssociatedController extends CI_Controller {
   public function inactiveAssociate() {
     $id = $this->uri->segment(3);
     $this->AssociatedModel->inactive($id);
+  }
+
+  public function dialogContact() {
+    $this->load->view('associated/dialogContact');
   }
 
 }

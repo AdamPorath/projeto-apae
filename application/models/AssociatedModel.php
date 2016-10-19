@@ -10,7 +10,10 @@ class AssociatedModel extends CI_Model {
   }
 
   public function create($associate) {
-    return $this->db->insert($this->table, $associate) > 0 ? TRUE:FALSE;
+    if ($this->db->insert($this->table, $associate) > 0) {
+      return $this->db->insert_id();
+    }
+    return 0;
   }
 
   public function getById($id) {
@@ -34,6 +37,10 @@ class AssociatedModel extends CI_Model {
   public function active($id) {
     $this->db->where('id_associate', $id);
     return $this->db->update($this->table, array('active' => 1));
+  }
+
+  public function getAllContactTypes() {
+    return $this->db->get('contact_type')->result_array();
   }
 
 }
