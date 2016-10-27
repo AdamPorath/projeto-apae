@@ -42,7 +42,7 @@ create table Associated(
     complement varchar(50) not null,
     neighborhood varchar(70) not null,
     name_in_card varchar(50) not null,
-    item_updated datetime,
+    last_update datetime,
     idBank int not null,
     idFrequency int not null,
     idPayment_type int not null,
