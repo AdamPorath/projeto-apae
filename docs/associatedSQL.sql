@@ -1,38 +1,38 @@
-create table Payment_type(
-	idPayment_type int not null auto_increment primary key,
+create table payment_type(
+	id_payment_type int not null auto_increment primary key,
     payment_description varchar(50) not null
 )engine=innoDB;
 
-create table Frequency(
-	idFrequency int not null auto_increment primary key,
+create table frequency(
+	id_frequency int not null auto_increment primary key,
     frequency_description varchar(30) not null
 )engine=innoDB;
 
-create table Bank(
-	idBank int not null auto_increment primary key,
+create table bank(
+	id_bank int not null auto_increment primary key,
     name_bank varchar(50) not null,
     phone_bank varchar(30) not null,
     min_value decimal(12,2) not null
 )engine=innoDB;
 
-create table State(
-	idState int not null auto_increment primary key,
+create table state(
+	id_state int not null auto_increment primary key,
     name_state varchar(75) not null,
     uf varchar(2) not null
 )engine=innoDB;
 
-create table City(
-	idCity int not null auto_increment primary key,
+create table city(
+	id_city int not null auto_increment primary key,
     name_city varchar(120) not null,
-    idState int not null,
-    foreign key (idState)
-		references State(idState)
+    id_state int not null,
+    foreign key (id_state)
+		references state(id_state)
 			on delete restrict
             on update cascade
 )engine=innoDB;
 
-create table Associated(
-	idAssociated bigint not null auto_increment primary key,
+create table associated(
+	id_associated bigint not null auto_increment primary key,
     name_assoc varchar(70) not null,
     birth_date date not null,
     rg int not null,
@@ -43,44 +43,44 @@ create table Associated(
     neighborhood varchar(70) not null,
     name_in_card varchar(50) not null,
     last_update datetime,
-    idBank int not null,
-    idFrequency int not null,
-    idPayment_type int not null,
-    idCity int not null,
-    foreign key (idBank)
-		references Bank(idBank)
+    id_bank int not null,
+    id_frequency int not null,
+    id_payment_type int not null,
+    id_city int not null,
+    foreign key (id_bank)
+		references bank(id_bank)
 			on delete restrict
             on update cascade,
-    foreign key (idFrequency)
-		references Frequency(idFrequency)
+    foreign key (id_frequency)
+		references frequency(id_frequency)
 			on delete restrict
             on update cascade,
-    foreign key (idPayment_type)
-		references Payment_type(idPayment_type)
+    foreign key (id_payment_type)
+		references payment_type(id_payment_type)
 			on delete restrict
             on update cascade,
-    foreign key (idCity)
-		references City(idCity)
+    foreign key (id_city)
+		references city(id_city)
 			on delete restrict
             on update cascade
 )engine=innoDB;
 
-create table Contact_type(
-	idContact_type int not null auto_increment primary key,
+create table contact_type(
+	id_contact_type int not null auto_increment primary key,
     description_c_type varchar(30) not null
 )engine=innoDB;
 
-create table Contact(
-	idContact int not null auto_increment primary key,
-    idContact_type int not null,
-    idAssociated bigint not null,
+create table contact(
+	id_contact int not null auto_increment primary key,
+    id_contact_type int not null,
+    id_associated bigint not null,
     description_contact varchar(100) not null,
-    foreign key (idContact_type)
-		references Contact_type(idContact_type)
+    foreign key (id_contact_type)
+		references contact_type(id_contact_type)
 			on delete restrict
             on update cascade,
-	foreign key (idAssociated)
-		references Associated(idAssociated)
+	foreign key (id_associated)
+		references associated(id_associated)
 			on delete restrict
             on update cascade
 )engine=innoDB;
